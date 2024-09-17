@@ -1,115 +1,81 @@
+// Variables const en diferentes bloques
 const contador = 1;
-if(true){
+if (true) {
   const contador = 5;
-  console.log(contador);
+  console.log(contador); // 5
 }
-console.log(contador);
+console.log(contador); // 1
 
+// Objeto persona
 const persona = {
-  nombre: "Immer",
-  apellido: "Guevara"
-}
+  nombre: "alexander",
+  apellido: "canales"
+};
 
-persona.nombre = "Immer";
-console.log(persona.nombre);
+persona.nombre = "alexander";
+console.log(persona.nombre); // Immer
 
-//objetos literales y Opcional chaining operator
-
+// Acceso a elementos de un array
 const frutas = ["pera", "manzana", "sandia"];
-console.log(frutas[2]); 
+console.log(frutas[2]); // sandia
 
-//Objetos literales, no indexados 
+// Objetos literales y acceso a propiedades
 const animal = {
   color: "naranja",
-  nombre: "simba",
+  nombre: "Simba",
   rugiendo: true
-}
+};
 
-console.log("Este león es color:" + animal.color);
-console.log("y su nombre es:" + animal.nombre);
+console.log("Este león es color: " + animal.color);
+console.log("y su nombre es: " + animal.nombre);
+console.log(animal["rugiendo"]); // true
 
-console.log(animal["rugiendo"]);
-
+// Uso del operador de encadenamiento opcional (?.)
 const tareas = {
-  "2359-91k83204u23rhrefiu" : {
+  "2359-91k83204u23rhrefiu": {
     title: "tarea #01"
   }
-}
+};
 
-console.log(tareas["2359-91k83204u23rhrefiu"].title);
+console.log(tareas["2359-91k83204u23rhrefiu"].title); // tarea #01
 
-const animal = {
+const animalConFavoritos = {
   color: "naranja",
   nombre: "Simba",
   rugiendo: true,
-  favoritos:{
+  favoritos: {
     dia: {
-      ok: true,
+      ok: true
     },
-    noche:{
+    noche: {
       ok: false
     }
   }
-}
+};
 
-console.log(animal.favoritos.luna?.ok);
+console.log(animalConFavoritos.favoritos.luna?.ok); // undefined
+console.log(animalConFavoritos.favoritos.dia.ok); // true
 
-const animal = {
-  color: "naranja",
-  nombre: "Simba",
-  rugiendo: true,
-  favoritos:{
-    dia: {
-      ok: true,
-    },
-    noche:{
-      ok: false
-    }
-  }
-}
+// Desestructuración de objetos
+const { color, nombre } = animalConFavoritos;
+console.log("Color: " + color + ", animal: " + nombre); // Color: naranja, animal: Simba
 
-console.log(animal.favoritos.dia.ok);
-
-
-//destructurin
-const animal = {
-  color: "naranja",
-  nombre: "Simba",
-  rugiendo: true,
-  favoritos:{
-    dia: {
-      ok: true,
-    },
-    noche:{
-      ok: false
-    }
-  }
-}
-
-//guardar el valor de la propiedad en una constante 
-const color = animal.color;
-const nombre = animal.nombre;
-
-console.log("Color:" + color + ", animal:" + nombre); 
-
-
-const animal = {
+const otroAnimal = {
   color: "Azul",
   nombre: "Torogoz",
   volando: true
-}
+};
 
-//destructuring
-const {color,nombre,volando} = animal;
+const { color: colorOtro, nombre: nombreOtro, volando } = otroAnimal;
+console.log("El " + nombreOtro + " es de color " + colorOtro); // El Torogoz es de color Azul
 
-console.log("El " + nombre + "es de color " + color);
-
-//arrays indexados
-const frutas = ["pera", "manzana", "sandia"];
-
-//destructuring arrays
-
+// Desestructuración de arrays
 const [pera, manzana, sandia] = frutas;
-console.log("A mi me gusta mucho la pera")
+console.log("A mi me gusta mucho la pera"); // A mi me gusta mucho la pera
 
-//Interpolacion, operador ternario
+// Interpolación y operador ternario
+const frutaFavorita = "pera";
+console.log(`A mi me gusta mucho la ${frutaFavorita}`); // A mi me gusta mucho la pera
+
+const esRugiendo = animal.rugiendo ? "sí" : "no";
+console.log(`¿El animal está rugiendo? ${esRugiendo}`); // ¿El animal está rugiendo? sí
